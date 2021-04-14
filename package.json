@@ -1,0 +1,26 @@
+{
+  "name": "dev-exam-frontend",
+  "version": "1.0.0",
+  "description": "Dev Exam Frontend",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd client && npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnsanandres/dev-exam-frontend.git"
+  },
+  "author": "Mervin San Andres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnsanandres/dev-exam-frontend/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/mnsanandres/dev-exam-frontend#readme",
+  "dependencies": {
+    "@vue/cli": "^4.5.12",
+    "axios": "^0.21.1",
+    "vue-router": "^3.5.1"
+  }
+}
