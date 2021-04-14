@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  client:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: pingcentral-client
+    container_name: pingcentral-client
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    networks:
+      - pingclient
+
+networks:
+  pingclient:
+    driver: bridge

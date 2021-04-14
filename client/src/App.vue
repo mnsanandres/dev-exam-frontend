@@ -10,12 +10,12 @@
               <b-button variant="outline-primary" href="#" v-on:click="getResponse" v-bind:class="{ 'is-loading': isGetting}">Ping</b-button>
           </b-card>
           <b-card>
-              <div v-if="isLoading">Loading responses...</div>
               <b-table small striped hover :items="responses" :fields="fields">
                 <template #cell(content)="data">
                     <code v-on:click="toggleContent">{{ data.value }}</code>
                 </template>
               </b-table>
+              <div v-if="isLoading">Loading responses...</div>
           </b-card>
         </b-card>
     </div>
@@ -42,13 +42,18 @@ export default {
             fields: ['date_time', {key: 'content', class: 'content-col content-truncate'}],
             responses: [],
             isGetting: false,
-            dismissSecs: 5,
+            dismissSecs: 10,
             dismissCountDown: 0
         }
     },
     async created () {
-      const response = await axios.get(`${API_BASE_URL}/responses`)
-      this.responses = response.data.data
+      try {
+        const response = await axios.get(`${API_BASE_URL}/responses`)
+        this.responses = response.data.data
+      } catch (error) {
+        console.log(error)
+        this.showAlert()
+      }
       this.isLoading = false
       this.isGetting = false
     },
