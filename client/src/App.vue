@@ -9,6 +9,7 @@
           <b-card>
               <b-button variant="outline-primary" href="#" v-on:click="getResponse" v-bind:class="{ 'is-loading': isGetting}">Ping</b-button>
           </b-card>
+          <em>Hint: Click the content text to toggle full content</em>
           <b-card>
               <b-table small striped hover :items="responses" :fields="fields">
                 <template #cell(content)="data">
